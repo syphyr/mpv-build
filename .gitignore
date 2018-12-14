@@ -12,3 +12,6 @@
 /debian/mpv.postrm.debhelper
 /debian/mpv.substvars
 /config/
+
+/debian/.debhelper
+/debian/mpv
