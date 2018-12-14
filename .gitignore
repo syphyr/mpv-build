@@ -15,3 +15,6 @@
 /debian/mpv.substvars
 /config/
 /*_options
+
+/debian/.debhelper
+/debian/mpv
