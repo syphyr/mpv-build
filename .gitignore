@@ -1,6 +1,7 @@
 /ffmpeg
 /fribidi
 /libass
+/libmysofa
 /mpv
 /build_libs
 /ffmpeg_build

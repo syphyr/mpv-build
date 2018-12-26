@@ -20,6 +20,7 @@ do_clone_all()
     #do_clone "fribidi"  "http://anongit.freedesktop.org/git/fribidi/fribidi.git"
     do_clone "libass"   "https://github.com/libass/libass.git"
     do_clone "mpv"      "https://github.com/mpv-player/mpv.git"
+    do_clone "libmysofa" "https://github.com/hoene/libmysofa"
 }
 
 do_gitmaster()
@@ -87,6 +88,7 @@ checkout_ffmpeg=master
 #checkout_fribidi=release
 checkout_libass=master
 checkout_mpv=master
+checkout_libmysofa=master
 
 
 checkout_all()
@@ -97,6 +99,7 @@ checkout_all()
     #$checkout fribidi $checkout_fribidi
     checkout libass $checkout_libass
     checkout mpv $checkout_mpv
+    checkout libmysofa $checkout_libmysofa
 }
 
 do_bootstrap()
@@ -125,6 +128,7 @@ case "$1" in
         #checkout_fribidi="master -"
         checkout_libass="master -"
         checkout_mpv="master -"
+        checkout_libmysofa="master -"
         ;;
     --release)
         checkout_ffmpeg="release -"

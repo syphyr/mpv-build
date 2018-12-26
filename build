@@ -6,6 +6,8 @@ export LC_ALL=C
 #scripts/fribidi-build $@
 scripts/libass-config
 scripts/libass-build $@
+scripts/libmysofa-config
+scripts/libmysofa-build $@
 scripts/ffmpeg-config
 scripts/ffmpeg-build $@
 scripts/mpv-config

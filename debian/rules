@@ -35,15 +35,21 @@ libass_config:
 libass_build: libass_config
 	scripts/libass-build $(MFLAGS)
 
+libmysofa_config:
+	scripts/libmysofa-config
+
+libmysofa_build: libmysofa_config
+	scripts/libmysofa-build $(MFLAGS)
+
 # depend on libass_build in case the user specified --enable-libass in ffmpeg_options
-ffmpeg_config: libass_build
+ffmpeg_config: libass_build libmysofa_build
 	scripts/ffmpeg-config
 
 ffmpeg_build: ffmpeg_config
 	scripts/ffmpeg-build $(MFLAGS)
 
 # put the config in the right place and drop the local/ since it's package managed now
-override_dh_auto_configure: ffmpeg_build libass_build
+override_dh_auto_configure: ffmpeg_build libass_build libmysofa_build
 	scripts/mpv-config --prefix=/usr --confdir=/etc/mpv
 
 override_dh_auto_build:
