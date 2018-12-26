@@ -1,0 +1,18 @@
+#!/bin/sh
+set -e
+BUILD="$(pwd)"
+
+OPTIONS="$@"
+
+case "$PKG_CONFIG_PATH" in
+  '')
+    export PKG_CONFIG_PATH="$BUILD/build_libs/lib/pkgconfig"
+    ;;
+  *)
+    export PKG_CONFIG_PATH="$BUILD/build_libs/lib/pkgconfig:$PKG_CONFIG_PATH"
+    ;;
+esac
+
+cd "$BUILD"/libmysofa/build
+cmake -DBUILD_SHARED_LIBS=OFF -DBUILD_TESTS=OFF -DCMAKE_INSTALL_PREFIX="$BUILD/build_libs" -DCMAKE_BUILD_TYPE=Release ..
+
