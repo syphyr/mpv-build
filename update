@@ -22,6 +22,7 @@ do_clone_all()
     do_clone "libass"     "https://github.com/libass/libass.git"
     do_clone "libplacebo" "https://github.com/haasn/libplacebo.git"
     do_clone "mpv"        "https://github.com/mpv-player/mpv.git"
+    do_clone "libmysofa" "https://github.com/hoene/libmysofa"
     do_clone "shaderc"    "https://github.com/google/shaderc"
 }
 
@@ -92,6 +93,7 @@ checkout_libass=master
 checkout_libplacebo=master
 checkout_shaderc=main
 checkout_mpv=master
+checkout_libmysofa=master
 
 
 checkout_all()
@@ -104,6 +106,7 @@ checkout_all()
     checkout shaderc $checkout_shaderc
     checkout libplacebo $checkout_libplacebo
     checkout mpv $checkout_mpv
+    checkout libmysofa $checkout_libmysofa
 }
 
 do_update_debian_versions()
@@ -129,6 +132,7 @@ case "$1" in
         checkout_shaderc="main -"
         checkout_libplacebo="master -"
         checkout_mpv="master -"
+        checkout_libmysofa="master -"
         ;;
     --release)
         checkout_ffmpeg="release -"
