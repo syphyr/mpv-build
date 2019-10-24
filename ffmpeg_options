@@ -1,6 +1,5 @@
 --enable-avisynth
 --enable-avresample
---enable-gnutls
 --enable-ladspa
 --enable-libass
 --enable-libbluray
@@ -51,6 +50,7 @@
 --enable-omx
 --enable-openal
 --enable-opengl
+--enable-openssl
 --enable-sdl2
 --enable-version3
 --toolchain=hardened
