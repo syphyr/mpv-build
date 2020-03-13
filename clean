@@ -2,7 +2,9 @@
 export LC_ALL=C
 
 scripts/ffmpeg-clean
-scripts/fribidi-clean
+#scripts/fribidi-clean
+scripts/libarchive-clean
 scripts/libass-clean
+scripts/libmysofa-clean
 scripts/mpv-clean
 rm -rf build_libs
