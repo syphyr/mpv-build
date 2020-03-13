@@ -24,6 +24,7 @@ do_clone_all()
     do_clone "mpv"        "https://github.com/mpv-player/mpv.git"
     do_clone "libmysofa" "https://github.com/hoene/libmysofa"
     do_clone "shaderc"    "https://github.com/google/shaderc"
+    do_clone "libarchive" "https://github.com/libarchive/libarchive"
 }
 
 do_gitmaster()
@@ -94,6 +95,7 @@ checkout_libplacebo=master
 checkout_shaderc=main
 checkout_mpv=master
 checkout_libmysofa=master
+checkout_libarchive=master
 
 
 checkout_all()
@@ -107,6 +109,7 @@ checkout_all()
     checkout libplacebo $checkout_libplacebo
     checkout mpv $checkout_mpv
     checkout libmysofa $checkout_libmysofa
+    checkout libarchive $checkout_libarchive
 }
 
 do_update_debian_versions()
@@ -133,6 +136,7 @@ case "$1" in
         checkout_libplacebo="master -"
         checkout_mpv="master -"
         checkout_libmysofa="master -"
+	checkout_libarchive="master -"
         ;;
     --release)
         checkout_ffmpeg="release -"
