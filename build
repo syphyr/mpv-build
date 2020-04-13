@@ -10,6 +10,8 @@ scripts/libass-config
 scripts/libass-build "$@"
 scripts/libmysofa-config
 scripts/libmysofa-build "$@"
+scripts/avisynth-config
+scripts/avisynth-build "$@"
 scripts/shaderc-config
 scripts/shaderc-build "$@"
 scripts/libplacebo-config
