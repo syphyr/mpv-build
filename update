@@ -25,6 +25,7 @@ do_clone_all()
     do_clone "libmysofa" "https://github.com/hoene/libmysofa"
     do_clone "shaderc"    "https://github.com/google/shaderc"
     do_clone "libarchive" "https://github.com/libarchive/libarchive"
+    do_clone "avisynth" "https://github.com/AviSynth/AviSynthPlus"
 }
 
 do_gitmaster()
@@ -96,6 +97,7 @@ checkout_shaderc=main
 checkout_mpv=master
 checkout_libmysofa=master
 checkout_libarchive=master
+checkout_avisynth=master
 
 
 checkout_all()
@@ -110,6 +112,7 @@ checkout_all()
     checkout mpv $checkout_mpv
     checkout libmysofa $checkout_libmysofa
     checkout libarchive $checkout_libarchive
+    checkout avisynth $checkout_avisynth
 }
 
 do_update_debian_versions()
@@ -136,7 +139,8 @@ case "$1" in
         checkout_libplacebo="master -"
         checkout_mpv="master -"
         checkout_libmysofa="master -"
-	checkout_libarchive="master -"
+        checkout_libarchive="master -"
+        checkout_avisynth="master -"
         ;;
     --release)
         checkout_ffmpeg="release -"

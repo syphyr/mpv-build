@@ -8,5 +8,6 @@ scripts/libplacebo-clean
 scripts/libarchive-clean
 scripts/libass-clean
 scripts/libmysofa-clean
+scripts/avisynth-clean
 scripts/mpv-clean
 rm -rf build_libs
