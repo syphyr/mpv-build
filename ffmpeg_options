@@ -1,3 +1,4 @@
+--extra-cflags="-I$HOME/src/mpv/mpv-build/build_libs/include"
 --enable-avisynth
 --enable-avresample
 --enable-ladspa
