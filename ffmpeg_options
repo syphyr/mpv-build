@@ -1,6 +1,5 @@
 --extra-cflags="-I$HOME/src/mpv/mpv-build/build_libs/include"
 --enable-avisynth
---enable-avresample
 --enable-ladspa
 --enable-libaom
 --enable-libass
@@ -53,5 +52,6 @@
 --enable-opengl
 --enable-openssl
 --enable-sdl2
+--enable-swresample
 --enable-version3
 --toolchain=hardened
