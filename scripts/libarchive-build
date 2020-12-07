@@ -4,4 +4,4 @@ set -e
 make -C libarchive/build install "$@"
 
 rm build_libs/lib/libarchive.so
-rm build_libs/lib/libarchive.so.17
+rm build_libs/lib/libarchive.so.18
