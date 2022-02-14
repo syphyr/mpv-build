@@ -1,4 +1,4 @@
 #!/bin/sh
 set -e
 
-make -C avisynth/avs_core install "$@"
+make -C avisynth/avs_core VersionGen install "$@"
