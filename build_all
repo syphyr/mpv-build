@@ -1,0 +1,18 @@
+sudo ln -sfv /usr/bin/python3.8 /usr/bin/python3
+python3 --version
+
+python -m pip install ninja
+python -m pip install cmake
+
+#cd mpv-build
+
+scripts/debian-update-versions
+
+mk-build-deps
+mv mpv-build-deps_*_amd64.deb ../
+dpkg-buildpackage -uc -us -b -j4
+
+python -m pip uninstall -y ninja
+python -m pip uninstall -y cmake
+
+sudo ln -sfv /usr/bin/python3.6 /usr/bin/python3
