@@ -1,0 +1,25 @@
+From a911e74d5b14cca1ee41819094f5c2bd066dedfc Mon Sep 17 00:00:00 2001
+From: syphyr <syphyr@gmail.com>
+Date: Wed, 17 Nov 2021 20:37:53 +0100
+Subject: [PATCH] Link math functions with new version of libmysofa
+
+---
+ configure | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/configure b/configure
+index 1b47f6512d..9aa9e16b80 100755
+--- a/configure
++++ b/configure
+@@ -6473,7 +6473,7 @@ fi
+ enabled libmodplug        && require_pkg_config libmodplug libmodplug libmodplug/modplug.h ModPlug_Load
+ enabled libmp3lame        && require "libmp3lame >= 3.98.3" lame/lame.h lame_set_VBR_quality -lmp3lame $libm_extralibs
+ enabled libmysofa         && { check_pkg_config libmysofa libmysofa mysofa.h mysofa_neighborhood_init_withstepdefine ||
+-                               require libmysofa mysofa.h mysofa_neighborhood_init_withstepdefine -lmysofa $zlib_extralibs; }
++                               require libmysofa mysofa.h mysofa_neighborhood_init_withstepdefine -lmysofa -lm $zlib_extralibs; }
+ enabled libnpp            && { check_lib libnpp npp.h nppGetLibVersion -lnppig -lnppicc -lnppc -lnppidei -lnppif ||
+                                check_lib libnpp npp.h nppGetLibVersion -lnppi -lnppif -lnppc -lnppidei ||
+                                die "ERROR: libnpp not found"; }
+-- 
+2.17.1
+

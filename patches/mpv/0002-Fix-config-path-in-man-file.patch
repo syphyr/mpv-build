@@ -1,0 +1,25 @@
+From 414d3d7b004e994bf542d16705be4694e4f053ee Mon Sep 17 00:00:00 2001
+From: syphyr <syphyr@gmail.com>
+Date: Fri, 14 Dec 2018 03:42:53 +0100
+Subject: [PATCH 2/5] Fix config path in man file
+
+---
+ DOCS/man/mpv.rst | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/DOCS/man/mpv.rst b/DOCS/man/mpv.rst
+index 896c0fda00..38bb43dd4b 100644
+--- a/DOCS/man/mpv.rst
++++ b/DOCS/man/mpv.rst
+@@ -1542,7 +1542,7 @@ FILES
+ 
+ For Windows-specifics, see `FILES ON WINDOWS`_ section.
+ 
+-``/usr/local/etc/mpv/mpv.conf``
++``/etc/mpv/mpv.conf``
+     mpv system-wide settings (depends on ``--prefix`` passed to configure - mpv
+     in default configuration will use ``/usr/local/etc/mpv/`` as config
+     directory, while most Linux distributions will set it to ``/etc/mpv/``).
+-- 
+2.17.1
+
