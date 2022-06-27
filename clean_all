@@ -1,0 +1,22 @@
+sudo ln -sfv /usr/bin/python3.8 /usr/bin/python3
+python3 --version
+
+#cd mpv-build
+
+./clean
+
+git clean -fdx
+cd libarchive
+git clean -fdx
+cd ../libass
+git clean -fdx
+cd ../libmysofa
+git clean -fdx
+cd ../avisynth
+git clean -fdx
+cd ../ffmpeg
+git clean -fdx
+cd ../mpv
+git clean -fdx
+
+sudo ln -sfv /usr/bin/python3.6 /usr/bin/python3

@@ -1,0 +1,65 @@
+#cd mpv-build
+
+echo ""
+echo "Rebasing libarchive"
+echo ""
+
+cd libarchive
+git checkout 3.5
+git fetch origin
+git rebase origin/3.5
+
+echo ""
+echo "Rebasing libass"
+echo ""
+
+cd ../libass
+git checkout master
+git fetch origin
+git rebase origin/master
+
+echo ""
+echo "Rebasing libmysofa"
+echo ""
+
+cd ../libmysofa
+git checkout master
+git fetch origin
+git rebase origin/master
+
+echo ""
+echo "Rebasing avisynth"
+echo ""
+
+cd ../avisynth
+git checkout master
+git fetch origin
+git rebase origin/master
+
+echo ""
+echo "Rebasing ffmpeg"
+echo ""
+
+cd ../ffmpeg
+git checkout master
+git fetch origin
+git rebase origin/master
+
+echo ""
+echo "Rebasing MPV"
+echo ""
+
+cd ../mpv
+git checkout master
+git fetch origin
+git rebase origin/master
+
+cd ..
+echo ""
+echo "Checking for mpv build tools"
+echo ""
+scripts/mpv-bootstrap
+
+echo ""
+echo "Done."
+echo ""
