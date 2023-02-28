@@ -2,5 +2,8 @@
 test -e mpv || exit 0
 
 cd mpv
-python3 ./waf distclean # waf clean
-rm -rf build # meson clean
+if [ "$BUILDSYSTEM" = "waf" ]; then
+    python3 ./waf distclean # waf clean
+else
+    rm -rf build # meson clean
+fi
