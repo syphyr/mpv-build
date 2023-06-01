@@ -1,0 +1,29 @@
+#!/bin/sh
+set -e
+
+BUILD="$(pwd)"
+newline="
+"
+
+if test -f "$BUILD"/shaderc_options ; then
+    IFS=$newline
+    set -- $(cat "$BUILD"/shaderc_options) "$@"
+    unset -v IFS
+fi
+
+OPTIONS="-DCMAKE_BUILD_TYPE=Release -DSHADERC_SKIP_TESTS=ON -DSHADERC_SKIP_EXAMPLES=ON -DSHADERC_SKIP_COPYRIGHT_CHECK=ON"
+
+case "$PKG_CONFIG_PATH" in
+  '')
+    export PKG_CONFIG_PATH="$BUILD/build_libs/lib/pkgconfig"
+    ;;
+  *)
+    export PKG_CONFIG_PATH="$BUILD/build_libs/lib/pkgconfig:$PKG_CONFIG_PATH"
+    ;;
+esac
+
+cd "$BUILD"/shaderc
+
+echo Using shaderc options: $OPTIONS "$@"
+
+cmake -B build -G "Ninja" -DCMAKE_INSTALL_PREFIX="$BUILD/build_libs" $OPTIONS "$@"

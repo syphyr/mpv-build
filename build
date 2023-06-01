@@ -4,6 +4,8 @@ export LC_ALL=C
 
 #scripts/fribidi-config
 #scripts/fribidi-build "$@"
+scripts/shaderc-config
+scripts/shaderc-build "$@"
 scripts/libplacebo-config
 scripts/libplacebo-build "$@"
 scripts/libass-config
