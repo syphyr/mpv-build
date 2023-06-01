@@ -1,0 +1,10 @@
+#!/bin/sh
+set -e
+
+ninja install -C shaderc/build "$@"
+
+rm build_libs/lib/libshaderc_shared.so
+rm build_libs/lib/libshaderc_shared.so.1
+rm build_libs/lib/pkgconfig/shaderc.pc
+rm build_libs/lib/libSPIRV-Tools-shared.so
+rm build_libs/lib/pkgconfig/SPIRV-Tools-shared.pc

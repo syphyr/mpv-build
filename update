@@ -22,6 +22,7 @@ do_clone_all()
     do_clone "libass"     "https://github.com/libass/libass.git"
     do_clone "libplacebo" "https://github.com/haasn/libplacebo.git"
     do_clone "mpv"        "https://github.com/mpv-player/mpv.git"
+    do_clone "shaderc"    "https://github.com/google/shaderc"
 }
 
 do_gitmaster()
@@ -89,6 +90,7 @@ checkout_ffmpeg=master
 #checkout_fribidi=release
 checkout_libass=master
 checkout_libplacebo=master
+checkout_shaderc=main
 checkout_mpv=master
 
 
@@ -99,6 +101,7 @@ checkout_all()
     checkout ffmpeg $checkout_ffmpeg
     #$checkout fribidi $checkout_fribidi
     checkout libass $checkout_libass
+    checkout shaderc $checkout_shaderc
     checkout libplacebo $checkout_libplacebo
     checkout mpv $checkout_mpv
 }
@@ -128,6 +131,7 @@ case "$1" in
         checkout_ffmpeg="master -"
         #checkout_fribidi="master -"
         checkout_libass="master -"
+        checkout_shaderc="main -"
         checkout_libplacebo="master -"
         checkout_mpv="master -"
         ;;
