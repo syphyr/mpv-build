@@ -60,7 +60,13 @@ ffmpeg_config: libass_build libplacebo_build
 ffmpeg_build: ffmpeg_config
 	scripts/ffmpeg-build $(MFLAGS)
 
-libplacebo_config:
+shaderc_config:
+	scripts/shaderc-config
+
+shaderc_build: shaderc_config
+	scripts/shaderc-build $(NINJAFLAGS)
+
+libplacebo_config: shaderc_build
 	scripts/libplacebo-config
 
 libplacebo_build: libplacebo_config
