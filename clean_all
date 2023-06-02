@@ -13,5 +13,9 @@ cd ../avisynth
 git clean -fdx
 cd ../ffmpeg
 git clean -fdx
+cd ../libplacebo
+git clean -fdx
+cd ../shaderc
+git clean -fdx
 cd ../mpv
 git clean -fdx

@@ -7,6 +7,7 @@ echo ""
 cd libarchive
 git checkout 3.5
 git fetch origin
+git log --pretty="%C(yellow)%h %C(green)(%cr) %C(red)(%ar) %C(white)%s %C(blue)(%an)" -10 origin/3.5
 git rebase origin/3.5
 
 echo ""
@@ -16,6 +17,7 @@ echo ""
 cd ../libass
 git checkout master
 git fetch origin
+git log --pretty="%C(yellow)%h %C(green)(%cr) %C(red)(%ar) %C(white)%s %C(blue)(%an)" -10 origin/master
 git rebase origin/master
 
 echo ""
@@ -25,6 +27,7 @@ echo ""
 cd ../libmysofa
 git checkout master
 git fetch origin
+git log --pretty="%C(yellow)%h %C(green)(%cr) %C(red)(%ar) %C(white)%s %C(blue)(%an)" -10 origin/master
 git rebase origin/master
 
 echo ""
@@ -34,7 +37,9 @@ echo ""
 cd ../avisynth
 git checkout master
 git fetch origin
+git log --pretty="%C(yellow)%h %C(green)(%cr) %C(red)(%ar) %C(white)%s %C(blue)(%an)" -10 origin/master
 git rebase origin/master
+git submodule update --init --recursive --rebase
 
 echo ""
 echo "Rebasing ffmpeg"
@@ -43,6 +48,37 @@ echo ""
 cd ../ffmpeg
 git checkout master
 git fetch origin
+git log --pretty="%C(yellow)%h %C(green)(%cr) %C(red)(%ar) %C(white)%s %C(blue)(%an)" -10 origin/master
+git rebase origin/master
+
+echo ""
+echo "Rebasing shaderc"
+echo ""
+
+cd ../shaderc
+git checkout main
+git fetch origin
+git log --pretty="%C(yellow)%h %C(green)(%cr) %C(red)(%ar) %C(white)%s %C(blue)(%an)" -10 origin/main
+git rebase origin/main
+cd utils
+./git-sync-deps
+cd ../third_party/spirv-tools
+APPLIED=$(git log --oneline --grep="Fix cpp-8 linking stdc++fs")
+if [ "$APPLIED" == "" ]; then
+	git am ../../../patches/shaderc/0001-Fix-cpp-8-linking-stdc-fs.patch
+else
+	echo "Fix cpp-8 linking stdc++fs already applied"
+fi
+cd ../..
+
+echo ""
+echo "Rebasing libplacebo"
+echo ""
+
+cd ../libplacebo
+git checkout master
+git fetch origin
+git log --pretty="%C(yellow)%h %C(green)(%cr) %C(red)(%ar) %C(white)%s %C(blue)(%an)" -10 origin/master
 git rebase origin/master
 
 echo ""
@@ -52,6 +88,7 @@ echo ""
 cd ../mpv
 git checkout master
 git fetch origin
+git log --pretty="%C(yellow)%h %C(green)(%cr) %C(red)(%ar) %C(white)%s %C(blue)(%an)" -10 origin/master
 git rebase origin/master
 
 cd ..
