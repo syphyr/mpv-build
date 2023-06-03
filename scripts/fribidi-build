@@ -1,4 +1,6 @@
 #!/bin/sh
 set -e
 
-make -C fribidi install "$@" -j1 # race conditions in the make rules
+cd fribidi
+ninja -C build "$@"
+ninja -C build install "$@"

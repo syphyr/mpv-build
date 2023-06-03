@@ -2,8 +2,8 @@
 set -e
 export LC_ALL=C
 
-#scripts/fribidi-config
-#scripts/fribidi-build "$@"
+scripts/fribidi-config
+scripts/fribidi-build "$@"
 scripts/freetype2-config
 scripts/freetype2-build "$@"
 scripts/libarchive-config
