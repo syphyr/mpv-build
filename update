@@ -18,6 +18,7 @@ do_clone()
 do_clone_all()
 {
     do_clone "ffmpeg"     "https://github.com/FFmpeg/FFmpeg.git"
+    do_clone "freetype2"  "git://git.sv.nongnu.org/freetype/freetype2.git"
     #do_clone "fribidi"    "http://anongit.freedesktop.org/git/fribidi/fribidi.git"
     do_clone "libass"     "https://github.com/libass/libass.git"
     do_clone "libplacebo" "https://github.com/haasn/libplacebo.git"
@@ -90,6 +91,7 @@ checkout()
 
 # fallback targets: release/master/@foo if no config file
 checkout_ffmpeg=master
+checkout_freetype2=master
 #checkout_fribidi=release
 checkout_libass=master
 checkout_libplacebo=master
@@ -105,6 +107,7 @@ checkout_all()
     set -ex
     do_clone_all
     checkout ffmpeg $checkout_ffmpeg
+    checkout freetype2 $checkout_freetype2
     #$checkout fribidi $checkout_fribidi
     checkout libass $checkout_libass
     checkout shaderc $checkout_shaderc
@@ -133,6 +136,7 @@ shift
 case "$1" in
     --master)
         checkout_ffmpeg="master -"
+	checkout_freetype2="master -"
         #checkout_fribidi="master -"
         checkout_libass="master -"
         checkout_shaderc="main -"

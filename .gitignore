@@ -9,6 +9,7 @@
 /mpv
 /build_libs
 /ffmpeg_build
+/freetype2
 *.deb
 /debian/changelog
 /debian/files
