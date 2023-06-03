@@ -11,11 +11,20 @@ cd ../libmysofa
 git clean -fdx
 cd ../avisynth
 git clean -fdx
+git submodule foreach --recursive git clean -xfd
 cd ../ffmpeg
 git clean -fdx
 cd ../libplacebo
 git clean -fdx
+git submodule foreach --recursive git clean -xfd
 cd ../shaderc
+git clean -fdx
+cd ../freetype2
+git clean -fdx
+git submodule foreach --recursive git clean -xfd
+cd ../fribidi
+git clean -fdx
+cd ../harfbuzz
 git clean -fdx
 cd ../mpv
 git clean -fdx
