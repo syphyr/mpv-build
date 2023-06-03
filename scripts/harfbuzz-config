@@ -1,0 +1,29 @@
+#!/bin/sh
+set -e
+
+BUILD="$(pwd)"
+newline="
+"
+
+if test -f "$BUILD"/harfbuzz_options ; then
+    IFS=$newline
+    set -- $(cat "$BUILD"/harfbuzz_options) "$@"
+    unset -v IFS
+fi
+
+OPTIONS="-Dprefix="$BUILD/build_libs" -Dlibdir="$BUILD/build_libs/lib" -Dbuildtype=release -Ddefault_library=static -Dtests=disabled -Ddocs=disabled"
+
+case "$PKG_CONFIG_PATH" in
+  '')
+    export PKG_CONFIG_PATH="$BUILD/build_libs/lib/pkgconfig"
+    ;;
+  *)
+    export PKG_CONFIG_PATH="$BUILD/build_libs/lib/pkgconfig:$PKG_CONFIG_PATH"
+    ;;
+esac
+
+echo Using harfbuzz options: $OPTIONS "$@"
+
+cd "$BUILD"/harfbuzz
+
+meson setup build $OPTIONS "$@"

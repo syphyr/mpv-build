@@ -6,6 +6,8 @@ scripts/fribidi-config
 scripts/fribidi-build "$@"
 scripts/freetype2-config
 scripts/freetype2-build "$@"
+scripts/harfbuzz-config
+scripts/harfbuzz-build "$@"
 scripts/libarchive-config
 scripts/libarchive-build "$@"
 scripts/libass-config
