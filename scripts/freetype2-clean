@@ -1,0 +1,5 @@
+#!/bin/sh
+test -e freetype2 || exit 0
+
+cd freetype2
+rm -rf build # meson clean
