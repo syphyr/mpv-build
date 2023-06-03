@@ -1,5 +1,6 @@
 #!/bin/sh
 set -e
+
 BUILD="$(pwd)"
 newline="
 "
@@ -10,11 +11,19 @@ if test -f "$BUILD"/fribidi_options ; then
     unset -v IFS
 fi
 
-OPTIONS="--enable-static --disable-shared --without-glib"
-if "$BUILD"/scripts/test-libmpv ; then
-    OPTIONS="$OPTIONS --with-pic"
-fi
+OPTIONS="-Dprefix="$BUILD/build_libs" -Dlibdir="$BUILD/build_libs/lib" -Dbuildtype=release -Ddefault_library=static -Ddocs=false"
+
+case "$PKG_CONFIG_PATH" in
+  '')
+    export PKG_CONFIG_PATH="$BUILD/build_libs/lib/pkgconfig"
+    ;;
+  *)
+    export PKG_CONFIG_PATH="$BUILD/build_libs/lib/pkgconfig:$PKG_CONFIG_PATH"
+    ;;
+esac
+
+echo Using fribidi options: $OPTIONS "$@"
 
 cd "$BUILD"/fribidi
-./bootstrap
-./configure --prefix="$BUILD/build_libs" --libdir="$BUILD/build_libs/lib" $OPTIONS "$@"
+
+meson setup build $OPTIONS "$@"

@@ -1,5 +1,5 @@
 #!/bin/sh
+test -e fribidi || exit 0
 
-if [ -f fribidi/Makefile ];then
-    make -C fribidi distclean
-fi
+cd fribidi
+rm -rf build # meson clean
