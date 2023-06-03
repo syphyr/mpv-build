@@ -1,0 +1,5 @@
+#!/bin/sh
+test -e harfbuzz || exit 0
+
+cd harfbuzz
+rm -rf build # meson clean

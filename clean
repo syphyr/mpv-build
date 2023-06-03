@@ -4,6 +4,7 @@ export LC_ALL=C
 scripts/ffmpeg-clean
 scripts/freetype2-clean
 scripts/fribidi-clean
+scripts/harfbuzz-clean
 scripts/shaderc-clean
 scripts/libplacebo-clean
 scripts/libarchive-clean

@@ -20,6 +20,7 @@ do_clone_all()
     do_clone "ffmpeg"     "https://github.com/FFmpeg/FFmpeg.git"
     do_clone "freetype2"  "git://git.sv.nongnu.org/freetype/freetype2.git"
     do_clone "fribidi"    "https://github.com/fribidi/fribidi.git"
+    do_clone "harfbuzz"   "https://github.com/harfbuzz/harfbuzz"
     do_clone "libass"     "https://github.com/libass/libass.git"
     do_clone "libplacebo" "https://github.com/haasn/libplacebo.git"
     do_clone "mpv"        "https://github.com/mpv-player/mpv.git"
@@ -93,6 +94,7 @@ checkout()
 checkout_ffmpeg=master
 checkout_freetype2=master
 checkout_fribidi=master
+checkout_harfbuzz=main
 checkout_libass=master
 checkout_libplacebo=master
 checkout_shaderc=main
@@ -109,6 +111,7 @@ checkout_all()
     checkout ffmpeg $checkout_ffmpeg
     checkout freetype2 $checkout_freetype2
     checkout fribidi $checkout_fribidi
+    checkout harfbuzz $checkout_harfbuzz
     checkout libass $checkout_libass
     checkout shaderc $checkout_shaderc
     checkout libplacebo $checkout_libplacebo
@@ -138,6 +141,7 @@ case "$1" in
         checkout_ffmpeg="master -"
 	checkout_freetype2="master -"
         checkout_fribidi="master -"
+	checkout_harfbuzz="main -"
         checkout_libass="master -"
         checkout_shaderc="main -"
         checkout_libplacebo="master -"
