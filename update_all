@@ -42,6 +42,37 @@ git rebase origin/master
 git submodule update --init --recursive --rebase
 
 echo ""
+echo "Rebasing freetype2"
+echo ""
+
+cd ../freetype2
+git checkout master
+git fetch origin
+git log --pretty="%C(yellow)%h %C(green)(%cr) %C(red)(%ar) %C(white)%s %C(blue)(%an)" -10 origin/master
+git rebase origin/master
+git submodule update --init --recursive --rebase
+
+echo ""
+echo "Rebasing fribidi"
+echo ""
+
+cd ../fribidi
+git checkout master
+git fetch origin
+git log --pretty="%C(yellow)%h %C(green)(%cr) %C(red)(%ar) %C(white)%s %C(blue)(%an)" -10 origin/master
+git rebase origin/master
+
+echo ""
+echo "Rebasing harfbuzz"
+echo ""
+
+cd ../harfbuzz
+git checkout main
+git fetch origin
+git log --pretty="%C(yellow)%h %C(green)(%cr) %C(red)(%ar) %C(white)%s %C(blue)(%an)" -10 origin/main
+git rebase origin/main
+
+echo ""
 echo "Rebasing ffmpeg"
 echo ""
 
@@ -80,6 +111,7 @@ git checkout master
 git fetch origin
 git log --pretty="%C(yellow)%h %C(green)(%cr) %C(red)(%ar) %C(white)%s %C(blue)(%an)" -10 origin/master
 git rebase origin/master
+git submodule update --init --recursive --rebase
 
 echo ""
 echo "Rebasing MPV"
