@@ -36,7 +36,25 @@ libarchive_config:
 libarchive_build: libarchive_config
 	scripts/libarchive-build $(MFLAGS)
 
-libass_config:
+freetype2_config:
+	scripts/freetype2-config
+
+freetype2_build: freetype2_config
+	scripts/freetype2-build $(MESONFLAGS)
+
+fribidi_config: freetype2_build
+	scripts/fribidi-config
+
+fribidi_build: fribidi_config
+	scripts/fribidi-build $(MESONFLAGS)
+
+harfbuzz_config: fribidi_build
+	scripts/harfbuzz-config
+
+harfbuzz_build: harfbuzz_config
+	scripts/harfbuzz-build $(MESONFLAGS)
+
+libass_config: harfbuzz_build
 	scripts/libass-config
 
 libass_build: libass_config
