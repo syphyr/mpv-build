@@ -6,6 +6,7 @@
 --enable-libbs2b
 --enable-libcaca
 --enable-libcdio
+--enable-libdav1d
 --enable-libdc1394
 --enable-libdrm
 --enable-libfdk-aac
