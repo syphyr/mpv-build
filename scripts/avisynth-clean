@@ -1,5 +1,9 @@
 #!/bin/sh
 
-if [ -f avisynth/avs_core/Makefile ];then
-    make -C avisynth/avs_core clean
+if [ -d avisynth ]; then
+	cd avisynth
+	git clean -fdx
+	git submodule foreach --recursive git clean -xfd
+else
+	echo "avisynth not cleaned"
 fi

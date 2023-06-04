@@ -1,6 +1,10 @@
 #!/bin/sh
 set -e
 
-if [ -d "libplacebo/build" ]; then
-    rm -r libplacebo/build
+if [ -d libplacebo ]; then
+	cd libplacebo
+	git clean -fdx
+	git submodule foreach --recursive git clean -xfd
+else
+	echo "libplacebo not cleaned"
 fi

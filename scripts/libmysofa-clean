@@ -1,5 +1,8 @@
 #!/bin/sh
 
-if [ -f libmysofa/build/Makefile ];then
-    make -C libmysofa/build clean
+if [ -d libmysofa ]; then
+	cd libmysofa
+	git clean -fdx
+else
+	echo "libmysofa not cleaned"
 fi
