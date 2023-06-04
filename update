@@ -26,6 +26,7 @@ do_clone_all()
     do_clone "mpv"        "https://github.com/mpv-player/mpv.git"
     do_clone "libmysofa" "https://github.com/hoene/libmysofa"
     do_clone "shaderc"    "https://github.com/google/shaderc"
+    do_clone "dav1d"      "https://github.com/videolan/dav1d"
     do_clone "libarchive" "https://github.com/libarchive/libarchive"
     do_clone "avisynth" "https://github.com/AviSynth/AviSynthPlus"
 }
@@ -101,6 +102,7 @@ checkout_shaderc=main
 checkout_mpv=master
 checkout_libmysofa=master
 checkout_libarchive=master
+checkout_dav1d=master
 checkout_avisynth=master
 
 
@@ -118,6 +120,7 @@ checkout_all()
     checkout mpv $checkout_mpv
     checkout libmysofa $checkout_libmysofa
     checkout libarchive $checkout_libarchive
+    checkout dav1d $checkout_dav1d
     checkout avisynth $checkout_avisynth
 }
 
@@ -148,6 +151,7 @@ case "$1" in
         checkout_mpv="master -"
         checkout_libmysofa="master -"
         checkout_libarchive="master -"
+	checkout_dav1d="master -"
         checkout_avisynth="master -"
         ;;
     --release)

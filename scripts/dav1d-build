@@ -1,0 +1,6 @@
+#!/bin/sh
+set -e
+
+cd dav1d
+ninja -C build "$@"
+ninja -C build install "$@"
