@@ -12,6 +12,8 @@ scripts/libarchive-config
 scripts/libarchive-build "$@"
 scripts/dav1d-config
 scripts/dav1d-build "$@"
+scripts/davs2-config
+scripts/davs2-build "$@"
 scripts/libass-config
 scripts/libass-build "$@"
 scripts/libmysofa-config

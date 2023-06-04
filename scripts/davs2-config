@@ -1,0 +1,29 @@
+#!/bin/sh
+set -e
+BUILD="$(pwd)"
+newline="
+"
+
+if test -f "$BUILD"/davs2_options ; then
+    IFS=$newline
+    set -- $(cat "$BUILD"/davs2_options) "$@"
+    unset -v IFS
+fi
+
+OPTIONS="--disable-cli"
+if "$BUILD"/scripts/test-libmpv ; then
+    OPTIONS="$OPTIONS --enable-pic"
+fi
+
+case "$PKG_CONFIG_PATH" in
+  '')
+    export PKG_CONFIG_PATH="$BUILD/build_libs/lib/pkgconfig"
+    ;;
+  *)
+    export PKG_CONFIG_PATH="$BUILD/build_libs/lib/pkgconfig:$PKG_CONFIG_PATH"
+    ;;
+esac
+
+cd "$BUILD"/davs2/build/linux
+./configure  --prefix="$BUILD/build_libs" --libdir="$BUILD/build_libs/lib" $OPTIONS "$@"
+
