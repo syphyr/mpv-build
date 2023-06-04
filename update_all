@@ -11,6 +11,16 @@ git log --pretty="%C(yellow)%h %C(green)(%cr) %C(red)(%ar) %C(white)%s %C(blue)(
 git rebase origin/3.5
 
 echo ""
+echo "Rebasing dav1d"
+echo ""
+
+cd ../dav1d
+git checkout master
+git fetch origin
+git log --pretty="%C(yellow)%h %C(green)(%cr) %C(red)(%ar) %C(white)%s %C(blue)(%an)" -10 origin/master
+git rebase origin/master
+
+echo ""
 echo "Rebasing libass"
 echo ""
 

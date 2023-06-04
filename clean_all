@@ -5,6 +5,8 @@
 git clean -fdx
 cd libarchive
 git clean -fdx
+cd ../dav1d
+git clean -fdx
 cd ../libass
 git clean -fdx
 cd ../libmysofa
