@@ -36,6 +36,12 @@ libarchive_config:
 libarchive_build: libarchive_config
 	scripts/libarchive-build $(MFLAGS)
 
+dav1d_config:
+	scripts/dav1d-config
+
+dav1d_build: dav1d_config
+	scripts/dav1d-build $(MESONFLAGS)
+
 freetype2_config:
 	scripts/freetype2-config
 
@@ -73,7 +79,7 @@ avisynth_build: avisynth_config
 	scripts/avisynth-build $(MFLAGS)
 
 # depend on libass_build in case the user specified --enable-libass in ffmpeg_options
-ffmpeg_config: libarchive_build libass_build libmysofa_build avisynth_build libplacebo_build
+ffmpeg_config: libarchive_build dav1d_build libass_build libmysofa_build avisynth_build libplacebo_build
 	scripts/ffmpeg-config
 
 ffmpeg_build: ffmpeg_config
@@ -92,7 +98,7 @@ libplacebo_build: libplacebo_config
 	scripts/libplacebo-build $(NINJAFLAGS)
 
 # drop the local/ since it's package managed now
-override_dh_auto_configure: ffmpeg_build libarchive_build libass_build libmysofa_build avisynth_build libplacebo_build
+override_dh_auto_configure: ffmpeg_build libarchive_build dav1d_build libass_build libmysofa_build avisynth_build libplacebo_build
 	scripts/mpv-config --prefix=/usr
 
 override_dh_auto_build:
