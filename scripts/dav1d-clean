@@ -1,0 +1,5 @@
+#!/bin/sh
+test -e dav1d || exit 0
+
+cd dav1d
+rm -rf build # meson clean

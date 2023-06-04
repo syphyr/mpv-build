@@ -1,0 +1,29 @@
+#!/bin/sh
+set -e
+
+BUILD="$(pwd)"
+newline="
+"
+
+if test -f "$BUILD"/dav1d_options ; then
+    IFS=$newline
+    set -- $(cat "$BUILD"/dav1d_options) "$@"
+    unset -v IFS
+fi
+
+OPTIONS="-Dprefix="$BUILD/build_libs" -Dlibdir="$BUILD/build_libs/lib" -Dbuildtype=release -Ddefault_library=static -Denable_tests=false -Db_lto=true -Denable_docs=false"
+
+case "$PKG_CONFIG_PATH" in
+  '')
+    export PKG_CONFIG_PATH="$BUILD/build_libs/lib/pkgconfig"
+    ;;
+  *)
+    export PKG_CONFIG_PATH="$BUILD/build_libs/lib/pkgconfig:$PKG_CONFIG_PATH"
+    ;;
+esac
+
+echo Using dav1d options: $OPTIONS "$@"
+
+cd "$BUILD"/dav1d
+
+meson setup build $OPTIONS "$@"

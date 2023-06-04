@@ -8,6 +8,7 @@ scripts/harfbuzz-clean
 scripts/shaderc-clean
 scripts/libplacebo-clean
 scripts/libarchive-clean
+scripts/dav1d-clean
 scripts/libass-clean
 scripts/libmysofa-clean
 scripts/avisynth-clean

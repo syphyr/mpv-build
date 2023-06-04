@@ -10,6 +10,8 @@ scripts/harfbuzz-config
 scripts/harfbuzz-build "$@"
 scripts/libarchive-config
 scripts/libarchive-build "$@"
+scripts/dav1d-config
+scripts/dav1d-build "$@"
 scripts/libass-config
 scripts/libass-build "$@"
 scripts/libmysofa-config
