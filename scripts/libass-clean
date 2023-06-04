@@ -1,5 +1,8 @@
 #!/bin/sh
 
-if [ -f libass/Makefile ];then
-    make -C libass distclean
+if [ -d libass ]; then
+	cd libass
+	git clean -fdx
+else
+	echo "libass not cleaned"
 fi

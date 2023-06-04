@@ -1,6 +1,9 @@
 #!/bin/sh
 set -e
 
-if [ -d "shaderc/build" ]; then
-    rm -r shaderc/build
+if [ -d shaderc ]; then
+	cd shaderc
+	git clean -fdx
+else
+	echo "shaderc not cleaned"
 fi

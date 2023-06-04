@@ -1,5 +1,8 @@
 #!/bin/sh
-test -e fribidi || exit 0
 
-cd fribidi
-rm -rf build # meson clean
+if [ -d fribidi ]; then
+	cd fribidi
+	git clean -fdx
+else
+	echo "fribidi not cleaned"
+fi

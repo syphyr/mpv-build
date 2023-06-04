@@ -1,5 +1,9 @@
 #!/bin/sh
-test -e freetype2 || exit 0
 
-cd freetype2
-rm -rf build # meson clean
+if [ -d freetype2 ]; then
+	cd freetype2
+	git clean -fdx
+	git submodule foreach --recursive git clean -xfd
+else
+	echo "freetype2 not cleaned"
+fi

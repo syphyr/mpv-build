@@ -1,5 +1,8 @@
 #!/bin/sh
-test -e dav1d || exit 0
 
-cd dav1d
-rm -rf build # meson clean
+if [ -d dav1d ]; then
+	cd dav1d
+	git clean -fdx
+else
+	echo "dav1d not cleaned"
+fi

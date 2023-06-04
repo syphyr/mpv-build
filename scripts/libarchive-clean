@@ -1,5 +1,8 @@
 #!/bin/sh
 
-if [ -f libarchive/build/Makefile ];then
-    make -C libarchive/build clean
+if [ -d libarchive ]; then
+	cd libarchive
+	git clean -fdx
+else
+	echo "libarchive not cleaned"
 fi
