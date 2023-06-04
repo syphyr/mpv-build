@@ -1,7 +1,5 @@
 #cd mpv-build
 
-./clean
-
 git clean -fdx
 cd libarchive
 git clean -fdx
