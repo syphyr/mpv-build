@@ -110,6 +110,13 @@ if [ "$APPLIED" == "" ]; then
 else
 	echo "Fix cpp-8 linking stdc++fs already applied"
 fi
+cd ../glslang
+APPLIED=$(git log --oneline --grep="glslang: linking stdc++fs")
+if [ "$APPLIED" == "" ]; then
+        git am ../../../patches/shaderc/0001-glslang-linking-stdc-fs.patch
+else
+        echo "glslang: linking stdc++fs already applied"
+fi
 cd ../..
 
 echo ""
