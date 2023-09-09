@@ -11,7 +11,7 @@ if test -f "$BUILD"/libplacebo_options ; then
     unset -v IFS
 fi
 
-OPTIONS="-Ddefault_library=static -Dtests=false -Ddemos=false"
+OPTIONS="-Dvulkan=disabled -Ddefault_library=static -Dtests=false -Ddemos=false"
 
 case "$PKG_CONFIG_PATH" in
   '')
