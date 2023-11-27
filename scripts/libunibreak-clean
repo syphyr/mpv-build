@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [ -d libunibreak ]; then
+	cd libunibreak
+	git clean -fdx
+else
+	echo "libunibreak not cleaned"
+fi
