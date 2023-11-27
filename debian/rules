@@ -60,7 +60,13 @@ harfbuzz_config: fribidi_build
 harfbuzz_build: harfbuzz_config
 	scripts/harfbuzz-build $(MESONFLAGS)
 
-libass_config: harfbuzz_build
+libunibreak_config: harfbuzz_build
+	scripts/libunibreak-config
+
+libunibreak_build: libunibreak_config
+	scripts/libunibreak-build $(MFLAGS)
+
+libass_config: libunibreak_build
 	scripts/libass-config
 
 libass_build: libass_config
