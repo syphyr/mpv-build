@@ -10,7 +10,7 @@ if test -f "$BUILD"/libass_options ; then
     unset -v IFS
 fi
 
-OPTIONS="--enable-static --disable-shared"
+OPTIONS="--enable-static --disable-shared --enable-libunibreak"
 if "$BUILD"/scripts/test-libmpv ; then
     OPTIONS="$OPTIONS --with-pic"
 fi
