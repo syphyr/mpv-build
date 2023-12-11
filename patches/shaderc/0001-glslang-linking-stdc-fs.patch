@@ -1,6 +1,6 @@
-From 3646f428e0eeb19c4aaf2714bdb201f86e6aca85 Mon Sep 17 00:00:00 2001
+From 58388a7d67d017402b3119cf0f9201efe15c8b26 Mon Sep 17 00:00:00 2001
 From: syphyr <syphyr@gmail.com>
-Date: Sun, 13 Aug 2023 21:44:22 +0200
+Date: Tue, 12 Dec 2023 00:41:04 +0100
 Subject: [PATCH] glslang: linking stdc++fs
 
 ---
@@ -8,19 +8,19 @@ Subject: [PATCH] glslang: linking stdc++fs
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/StandAlone/CMakeLists.txt b/StandAlone/CMakeLists.txt
-index ad88442c..fa34aa83 100644
+index 45ad26ef..bd30b4bb 100644
 --- a/StandAlone/CMakeLists.txt
 +++ b/StandAlone/CMakeLists.txt
-@@ -66,7 +66,7 @@ elseif(UNIX)
+@@ -71,7 +71,7 @@ elseif(UNIX)
      endif()
  endif()
  
 -target_link_libraries(glslang-standalone ${LIBRARIES})
 +target_link_libraries(glslang-standalone ${LIBRARIES} stdc++fs)
  target_include_directories(glslang-standalone PUBLIC
-     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../External>
-     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/External>)
-@@ -82,7 +82,7 @@ if(ENABLE_SPVREMAPPER)
+     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../External>)
+ 
+@@ -80,7 +80,7 @@ if(ENABLE_SPVREMAPPER)
      add_executable(spirv-remap ${REMAPPER_SOURCES})
      set_property(TARGET spirv-remap PROPERTY FOLDER tools)
      glslang_set_link_args(spirv-remap)
