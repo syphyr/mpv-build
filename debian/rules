@@ -72,6 +72,12 @@ libass_config: libunibreak_build
 libass_build: libass_config
 	scripts/libass-build $(MFLAGS)
 
+libaom_config:
+	scripts/libaom-config
+
+libaom_build: libaom_config
+	scripts/libaom-build $(MFLAGS)
+
 libmysofa_config:
 	scripts/libmysofa-config
 
@@ -85,7 +91,7 @@ avisynth_build: avisynth_config
 	scripts/avisynth-build $(MFLAGS)
 
 # depend on libass_build in case the user specified --enable-libass in ffmpeg_options
-ffmpeg_config: libarchive_build dav1d_build libass_build libmysofa_build avisynth_build libplacebo_build
+ffmpeg_config: libarchive_build libaom_build dav1d_build libass_build libmysofa_build avisynth_build libplacebo_build
 	scripts/ffmpeg-config
 
 ffmpeg_build: ffmpeg_config
@@ -98,7 +104,7 @@ libplacebo_build: libplacebo_config
 	scripts/libplacebo-build $(NINJAFLAGS)
 
 # drop the local/ since it's package managed now
-override_dh_auto_configure: ffmpeg_build libarchive_build dav1d_build libass_build libmysofa_build avisynth_build libplacebo_build
+override_dh_auto_configure: ffmpeg_build libarchive_build libaom_build dav1d_build libass_build libmysofa_build avisynth_build libplacebo_build
 	scripts/mpv-config --prefix=/usr
 
 override_dh_auto_build:
