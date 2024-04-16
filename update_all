@@ -21,14 +21,14 @@ git log --pretty="%C(yellow)%h %C(green)(%cr) %C(red)(%ar) %C(white)%s %C(blue)(
 git rebase origin/master
 
 echo ""
-echo "Rebasing libaom"
+echo "Rebasing aom"
 echo ""
 
-cd ../libaom
-git checkout master
+cd ../aom
+git checkout main
 git fetch origin
-git log --pretty="%C(yellow)%h %C(green)(%cr) %C(red)(%ar) %C(white)%s %C(blue)(%an)" -10 origin/master
-git rebase origin/master
+git log --pretty="%C(yellow)%h %C(green)(%cr) %C(red)(%ar) %C(white)%s %C(blue)(%an)" -10 origin/main
+git rebase origin/main
 
 echo ""
 echo "Rebasing libunibreak"

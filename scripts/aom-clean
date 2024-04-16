@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [ -d aom ]; then
+	cd aom
+	git clean -fdx
+else
+	echo "aom not cleaned"
+fi

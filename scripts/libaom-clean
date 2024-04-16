@@ -1,8 +1,0 @@
-#!/bin/sh
-
-if [ -d libaom ]; then
-	cd libaom
-	git clean -fdx
-else
-	echo "libaom not cleaned"
-fi

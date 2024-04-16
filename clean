@@ -6,7 +6,7 @@ scripts/freetype2-clean
 scripts/fribidi-clean
 scripts/harfbuzz-clean
 scripts/shaderc-clean
-scripts/libaom-clean
+scripts/aom-clean
 scripts/libplacebo-clean
 scripts/libarchive-clean
 scripts/dav1d-clean
