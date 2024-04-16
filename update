@@ -30,6 +30,7 @@ do_clone_all()
     do_clone "dav1d"      "https://github.com/videolan/dav1d"
     do_clone "libarchive" "https://github.com/libarchive/libarchive"
     do_clone "avisynth" "https://github.com/AviSynth/AviSynthPlus"
+    do_clone "libaom" "https://github.com/darkskygit/libaom"
 }
 
 do_gitmaster()
@@ -106,6 +107,7 @@ checkout_libmysofa=master
 checkout_libarchive=master
 checkout_dav1d=master
 checkout_avisynth=master
+checkout_libaom=master
 
 
 checkout_all()
@@ -125,6 +127,7 @@ checkout_all()
     checkout libarchive $checkout_libarchive
     checkout dav1d $checkout_dav1d
     checkout avisynth $checkout_avisynth
+    checkout libaom $checkout_libaom
 }
 
 do_update_debian_versions()
@@ -145,9 +148,9 @@ shift
 case "$1" in
     --master)
         checkout_ffmpeg="master -"
-	checkout_freetype2="master -"
+        checkout_freetype2="master -"
         checkout_fribidi="master -"
-	checkout_harfbuzz="main -"
+        checkout_harfbuzz="main -"
         checkout_libunibreak="master -"
         checkout_libass="master -"
         checkout_shaderc="main -"
@@ -155,8 +158,9 @@ case "$1" in
         checkout_mpv="master -"
         checkout_libmysofa="master -"
         checkout_libarchive="master -"
-	checkout_dav1d="master -"
+        checkout_dav1d="master -"
         checkout_avisynth="master -"
+        checkout_libaom="master -"
         ;;
     --release)
         checkout_ffmpeg="release -"

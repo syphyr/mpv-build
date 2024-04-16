@@ -22,6 +22,8 @@ scripts/avisynth-config
 scripts/avisynth-build "$@"
 scripts/shaderc-config
 scripts/shaderc-build "$@"
+scripts/libaom-config
+scripts/libaom-build "$@"
 scripts/libplacebo-config
 scripts/libplacebo-build "$@"
 scripts/ffmpeg-config
