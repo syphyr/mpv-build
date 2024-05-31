@@ -5,6 +5,10 @@ cd libarchive
 git clean -fdx
 cd ../dav1d
 git clean -fdx
+cd ../libunibreak
+git clean -fdx
+cd ../aom
+git clean -fdx
 cd ../libass
 git clean -fdx
 cd ../libmysofa
