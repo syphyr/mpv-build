@@ -1,0 +1,57 @@
+From 29065598c229a7d475254d8578dc6fda25637a87 Mon Sep 17 00:00:00 2001
+From: syphyr <syphyr@gmail.com>
+Date: Sat, 5 Aug 2023 23:35:12 +0200
+Subject: [PATCH] Revert "drm: bump minimum version to 2.4.105"
+
+This reverts commit 3b198668821685295e1e122df92adfbacc55a8f5.
+---
+ meson.build            | 5 ++++-
+ video/out/drm_common.c | 4 ++++
+ 2 files changed, 8 insertions(+), 1 deletion(-)
+
+diff --git a/meson.build b/meson.build
+index b7bcb1b0ba..a9a6f9c16d 100644
+--- a/meson.build
++++ b/meson.build
+@@ -935,7 +935,7 @@ if features['direct3d']
+     sources += files('video/out/vo_direct3d.c')
+ endif
+ 
+-drm = dependency('libdrm', version: '>= 2.4.105', required: get_option('drm'))
++drm = dependency('libdrm', version: '>= 2.4.75', required: get_option('drm'))
+ features += {'drm': drm.found() and (features['vt.h'] or features['consio.h'] or features['wsdisplay-usl-io.h'])}
+ if features['drm']
+     dependencies += drm
+@@ -948,6 +948,9 @@ if features['drm']
+                      'video/out/vo_drm.c')
+ endif
+ 
++# This can be removed roughly when Debian 12 is released.
++features += {'drm-is-kms': features['drm'] and drm.version().version_compare('>= 2.4.105')}
++
+ gbm_opt = get_option('gbm').require(
+     features['drm'],
+     error_message: 'drm was not found!'
+diff --git a/video/out/drm_common.c b/video/out/drm_common.c
+index 5961df52f2..2a038b3e45 100644
+--- a/video/out/drm_common.c
++++ b/video/out/drm_common.c
+@@ -809,11 +809,15 @@ static int open_card_path(const char *path)
+ 
+ static bool card_supports_kms(const char *path)
+ {
++#if HAVE_DRM_IS_KMS
+     int fd = open_card_path(path);
+     bool ret = fd != -1 && drmIsKMS(fd);
+     if (fd != -1)
+         close(fd);
+     return ret;
++#else
++    return true;
++#endif
+ }
+ 
+ static bool card_has_connection(const char *path)
+-- 
+2.17.1
+
