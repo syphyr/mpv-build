@@ -1,0 +1,47 @@
+From 61491278226e96195612e778e7cda9a5168b0438 Mon Sep 17 00:00:00 2001
+From: syphyr <syphyr@gmail.com>
+Date: Tue, 12 Dec 2023 02:30:02 +0100
+Subject: [PATCH] Fix for cmake version check
+
+---
+ CMakeLists.txt          | 6 +++++-
+ cmake/setup_build.cmake | 6 +++++-
+ 2 files changed, 10 insertions(+), 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index ffcb54b..34662b4 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -91,7 +91,11 @@ if (COMPILER_SUPPORTS_EXTRA_SEMI_WARNING)
+     add_compile_options("-Wextra-semi")
+ endif()
+ 
+-find_package(Python COMPONENTS Interpreter REQUIRED)
++if(${CMAKE_VERSION} VERSION_LESS_EQUAL "3.26.4")
++  find_package(PythonInterp 3 REQUIRED)
++else ()
++  find_package(Python COMPONENTS Interpreter REQUIRED)
++endif ()
+ 
+ if (SHADERC_ENABLE_COPYRIGHT_CHECK)
+   add_custom_target(check-copyright ALL
+diff --git a/cmake/setup_build.cmake b/cmake/setup_build.cmake
+index 936796d..f1506bb 100644
+--- a/cmake/setup_build.cmake
++++ b/cmake/setup_build.cmake
+@@ -49,7 +49,11 @@ if (ANDROID)
+ find_host_package(PythonInterp 3 REQUIRED)
+ find_host_package(BISON)
+ else()
+-  find_package(Python COMPONENTS Interpreter REQUIRED)
++  if(${CMAKE_VERSION} VERSION_LESS_EQUAL "3.26.4")
++    find_package(PythonInterp 3 REQUIRED)
++  else ()
++    find_package(Python COMPONENTS Interpreter REQUIRED)
++  endif ()
+ endif()
+ 
+ option(DISABLE_RTTI "Disable RTTI in builds")
+-- 
+2.17.1
+
