@@ -1,0 +1,47 @@
+From 1c2878c6e68fd4244833f24c9e532ea5e38de7b9 Mon Sep 17 00:00:00 2001
+From: syphyr <syphyr@gmail.com>
+Date: Wed, 9 Oct 2024 23:04:54 +0200
+Subject: [PATCH] Silence benign HW probe error caused by mpv
+
+Fixes: hwdec/vaapi: additionally probe hwupload format conversions
+
+This commit was added to mpv 6797f543782d29561ec7b28163ec82e9a4d79318
+
+[ffmpeg] AVHWDeviceContext: VAAPI driver: Intel i965 driver for Intel(R) Skylake - 2.1.0.
+[ffmpeg] AVHWDeviceContext: Driver not found in known nonstandard list, using standard behaviour.
+[vo/gpu/vaapi] Going to probe surface formats (may log bogus errors)...
+[vo/gpu/vaapi] Failed to create mapper
+[vo/gpu/vaapi] Unsupported format: yuyv422
+[vo/gpu/vaapi] Failed to create mapper
+[vo/gpu/vaapi] Unsupported format: uyvy422
+[vo/gpu/vaapi/vaapi] libva: vaExportSurfaceHandle: fourcc 48323234 is not supported for export as separate planes.
+[vo/gpu/vaapi] vaExportSurfaceHandle() failed (invalid VASurfaceID)
+[vo/gpu/vaapi] Unsupported format: yuv422p
+[ffmpeg] AVHWFramesContext: Failed to write image to surface 0x4000001: 20 (the requested function is not implemented).
+[vo/gpu/vaapi] Supported formats:
+[vo/gpu/vaapi]  nv12
+[vo/gpu/vaapi]  yuv420p
+[vo/gpu/vaapi]  rgb0
+[vo/gpu/vaapi]  bgr0
+[vo/gpu/vaapi]  p010
+[vo/gpu/vaapi] Done probing surface formats.
+---
+ libavutil/hwcontext_vaapi.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/libavutil/hwcontext_vaapi.c b/libavutil/hwcontext_vaapi.c
+index 95aa38d9d2..15d7e8576c 100644
+--- a/libavutil/hwcontext_vaapi.c
++++ b/libavutil/hwcontext_vaapi.c
+@@ -783,7 +783,7 @@ static void vaapi_unmap_frame(AVHWFramesContext *hwfc,
+                          0, 0, hwfc->width, hwfc->height,
+                          0, 0, hwfc->width, hwfc->height);
+         if (vas != VA_STATUS_SUCCESS) {
+-            av_log(hwfc, AV_LOG_ERROR, "Failed to write image to surface "
++            av_log(hwfc, AV_LOG_DEBUG, "Failed to write image to surface "
+                    "%#x: %d (%s).\n", surface_id, vas, vaErrorStr(vas));
+         }
+     }
+-- 
+2.17.1
+
