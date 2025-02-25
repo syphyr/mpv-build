@@ -2,3 +2,4 @@
 -Ddvdnav=enabled
 -Dcdda=enabled
 -Dvulkan=disabled
+-Dlibmpv=false
