@@ -65,10 +65,11 @@ echo "Rebasing avisynth"
 echo ""
 
 cd ../avisynth
-git checkout master
+#git checkout master
+git checkout v3.7.5
 git fetch origin
 git log --pretty="%C(yellow)%h %C(green)(%cr) %C(red)(%ar) %C(white)%s %C(blue)(%an)" -10 origin/master
-git rebase origin/master
+#git rebase origin/master
 git submodule update --init --recursive --rebase
 
 echo ""
