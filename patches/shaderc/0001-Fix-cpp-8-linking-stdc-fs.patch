@@ -1,4 +1,4 @@
-From 8c264f62edddb12c86c44b62cb082ca37403d6f5 Mon Sep 17 00:00:00 2001
+From eb462435032143bff7777a4a7588206c99d80d20 Mon Sep 17 00:00:00 2001
 From: syphyr <syphyr@gmail.com>
 Date: Thu, 1 Jun 2023 22:17:01 +0200
 Subject: [PATCH] Fix cpp-8 linking stdc++fs
@@ -8,12 +8,12 @@ Subject: [PATCH] Fix cpp-8 linking stdc++fs
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/tools/CMakeLists.txt b/tools/CMakeLists.txt
-index a93f6404..ed7038b7 100644
+index f5e830f5..aab59940 100644
 --- a/tools/CMakeLists.txt
 +++ b/tools/CMakeLists.txt
-@@ -31,7 +31,7 @@ function(add_spvtools_tool)
+@@ -40,7 +40,7 @@ function(add_spvtools_tool)
+   endif()
  
-   add_executable(${ARG_TARGET} ${ARG_SRCS})
    spvtools_default_compile_options(${ARG_TARGET})
 -  target_link_libraries(${ARG_TARGET} PRIVATE ${ARG_LIBS})
 +  target_link_libraries(${ARG_TARGET} PRIVATE ${ARG_LIBS} stdc++fs)
