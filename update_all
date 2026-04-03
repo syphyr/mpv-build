@@ -109,12 +109,12 @@ echo ""
 
 cd ../ffmpeg
 #git checkout master
-git checkout release-8.0
+git checkout release-8.1
 git fetch origin
 #git log --pretty="%C(yellow)%h %C(green)(%cr) %C(red)(%ar) %C(white)%s %C(blue)(%an)" -10 origin/master
-git log --pretty="%C(yellow)%h %C(green)(%cr) %C(red)(%ar) %C(white)%s %C(blue)(%an)" -10 origin/release/8.0
+git log --pretty="%C(yellow)%h %C(green)(%cr) %C(red)(%ar) %C(white)%s %C(blue)(%an)" -10 origin/release/8.1
 #git rebase origin/master
-git rebase origin/release/8.0
+git rebase origin/release/8.1
 
 echo ""
 echo "Rebasing shaderc"
