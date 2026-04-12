@@ -1,4 +1,4 @@
 #!/bin/sh
 set -e
 
-make -C aom/build install "$@"
+make -C aom/aom_build install "$@"

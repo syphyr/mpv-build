@@ -13,6 +13,10 @@ case "$PKG_CONFIG_PATH" in
     ;;
 esac
 
-cd "$BUILD"/aom/build
+cd "$BUILD"/aom
+rm -rf CMakeCache.txt CMakeFiles
+mkdir aom_build
+cd aom_build
+
 cmake -Wno-dev -DBUILD_SHARED_LIBS=OFF -DENABLE_EXAMPLES=OFF -DENABLE_TESTS=OFF -DENABLE_TOOLS=OFF -DCMAKE_INSTALL_PREFIX="$BUILD/build_libs" -DCMAKE_BUILD_TYPE=Release ..
 
