@@ -1,6 +1,7 @@
 #!/bin/sh
 export LC_ALL=C
 
+scripts/curl-clean
 scripts/ffmpeg-clean
 scripts/freetype2-clean
 scripts/fribidi-clean

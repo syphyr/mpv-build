@@ -1,0 +1,9 @@
+#!/bin/sh
+
+if [ -d curl ]; then
+	cd curl
+	git clean -fdx
+	git reset --hard
+else
+	echo "curl not cleaned"
+fi

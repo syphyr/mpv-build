@@ -2,6 +2,8 @@
 set -e
 export LC_ALL=C
 
+scripts/curl-config
+scripts/curl-build "$@"
 scripts/fribidi-config
 scripts/fribidi-build "$@"
 scripts/freetype2-config

@@ -17,6 +17,7 @@ do_clone()
 
 do_clone_all()
 {
+    do_clone "curl"     "https://github.com/curl/curl"
     do_clone "ffmpeg"     "https://github.com/FFmpeg/FFmpeg.git"
     do_clone "freetype2"  "git://git.sv.nongnu.org/freetype/freetype2.git"
     do_clone "fribidi"    "https://github.com/fribidi/fribidi.git"
@@ -94,6 +95,7 @@ checkout()
 }
 
 # fallback targets: release/master/@foo if no config file
+checkout_curl=master
 checkout_ffmpeg=master
 checkout_freetype2=master
 checkout_fribidi=master
@@ -114,6 +116,7 @@ checkout_all()
 {
     set -ex
     do_clone_all
+    checkout curl $checkout_curl
     checkout ffmpeg $checkout_ffmpeg
     checkout freetype2 $checkout_freetype2
     checkout fribidi $checkout_fribidi
@@ -147,6 +150,7 @@ shift
 # allow checkout master/release without checking the config files
 case "$1" in
     --master)
+        checkout_curl="master -"
         checkout_ffmpeg="master -"
         checkout_freetype2="master -"
         checkout_fribidi="master -"

@@ -3,6 +3,8 @@
 git clean -fdx
 cd libarchive
 git clean -fdx
+cd ../curl
+git clean -fdx
 cd ../dav1d
 git clean -fdx
 cd ../libunibreak
