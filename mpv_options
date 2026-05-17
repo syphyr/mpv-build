@@ -3,3 +3,4 @@
 -Dcdda=enabled
 -Dvulkan=disabled
 -Dlibmpv=false
+-Dlibcurl=enabled
